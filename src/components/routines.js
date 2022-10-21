@@ -23,16 +23,14 @@ const Routines = ({ routines }) => {
   return (
     <div className="container-allRoutines">
       {routines.map((routine) => {
-        const { id, creatorName, creatorId, name, goal, activities } = routine;
+        const { id, creatorName, name, goal, activities } = routine;
 
-        
         return (
           <div key={id} className='container-singleRoutine'>
             <hr></hr>
             <h2>{name}</h2>
             <p>Creator: {creatorName}</p>
-            <p>Goal: {goal}</p>
-            <p>CreatorId: {creatorId}</p>
+            <p>Goal: {goal}</p> 
             <div className="container-allRoutineActivities">
             {activities.map((activity) => {
               return (
