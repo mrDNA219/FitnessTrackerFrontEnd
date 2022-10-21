@@ -16,3 +16,40 @@
 // be able to add an activity to a routine via a small form which has a dropdown for all activities, an inputs for count and duration
 // be able to update the duration or count of any activity on the routine
 // be able to remove any activity from the routine
+import { react } from "react";
+import "../style.css";
+
+const Routines = ({ routines }) => {
+  return (
+    <div className="container-allRoutines">
+      {routines.map((routine) => {
+        const { id, creatorName, creatorId, name, goal, activities } = routine;
+
+        
+        return (
+          <div key={id} className='container-singleRoutine'>
+            <hr></hr>
+            <h2>{name}</h2>
+            <p>Creator: {creatorName}</p>
+            <p>Goal: {goal}</p>
+            <p>CreatorId: {creatorId}</p>
+            <div className="container-allRoutineActivities">
+            {activities.map((activity) => {
+              return (
+                <div key={activity.id} className='container-singleRoutineActivity'>
+                  <h3>Activity:</h3>
+                  <p>Name: {activity.name}</p>
+                  <p>Description: {activity.description}</p>
+                  <p>Duration: {activity.duration}</p>
+                  <p>Count: {activity.count}</p>
+                </div>
+              );
+            })}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+export default Routines;

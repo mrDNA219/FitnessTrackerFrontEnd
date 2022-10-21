@@ -1,0 +1,22 @@
+h2 {
+    text-decoration: underline;
+}
+.navbar{
+    text-align: center;
+}
+.welcome-message{
+    text-align: center;
+}
+.home-p{
+    text-align: center;
+}
+a {
+    padding-right: 13px;
+    color: red;
+    font-size: 1.5rem;
+}
+.container-allRoutines{
+    
+    text-align: center;
+    align-items: center;
+}
