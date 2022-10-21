@@ -1,0 +1,1 @@
+// gets a single activity and morphs the page to display it
