@@ -7,14 +7,29 @@ import { react, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../style.css";
 
-const Navbar = () => {
+const Navbar = (token, setToken) => {
+ 
   return (
     <nav className="navbar">
       <Link className="navbar-links" to="/">Home</Link>
       <Link className="navbar-links" to="routines">Routines</Link>
       <Link className="navbar-links" to="activities">Activities</Link>
-      <Link className="navbar-links" to="register">Register</Link>
-      <Link className="navbar-links" to="login">Login</Link>
+      {
+        token.token ? ( 
+          
+          <Link to='/' onClick={() => {
+            window.localStorage.removeItem('token');
+            setToken('');
+          }}>Logout</Link>
+          
+          ) : (
+          <>
+          <Link className="navbar-links" to="login">Login</Link>
+          <Link className="navbar-links" to="register">Register</Link>
+          </>
+
+        )
+      }
       
     </nav>
   );

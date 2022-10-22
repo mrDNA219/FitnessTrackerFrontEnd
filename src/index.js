@@ -23,15 +23,13 @@ const retrieveAllActvities = async () => {
   const results = await getActivities();
   setActivities(results);
 };
-async function getMe() {
+const getToken = async () => {
   const storedToken = window.localStorage.getItem('token');
   if(!token){
-      if(storedToken){
+    if(storedToken){
       setToken(storedToken);
-      }
-      return;
-  } else {
-      console.error("error getting my token")
+    }
+    return;
   }
 }
 
@@ -42,13 +40,12 @@ async function getMe() {
   useEffect(() => {
     retrieveAllActvities()
   }, []);
-  useEffect(() => {
-    getMe()
-  }, [])
+  
+  
 
   return (
     <div>
-      <Navbar />
+      <Navbar setToken={setToken} token={token}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/routines" element={<Routines routines={routines} navigate={navigate} />} />
