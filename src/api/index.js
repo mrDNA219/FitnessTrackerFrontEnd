@@ -14,6 +14,20 @@ export const getRoutines = async () => {
     }
 }
 
+export const getActivities = async () => {
+  try{
+      const response = await fetch(`${baseURL}/activities`, {
+          headers: {
+              'Content-Type': 'application/json'
+            }
+      });
+      const results = await response.json();
+      return results;
+  } catch(error){
+      console.error(error)
+  }
+}
+
 export const registerUser = async (username, password) => {
     try {
       const response = await fetch(`${baseURL}/users/register`, {

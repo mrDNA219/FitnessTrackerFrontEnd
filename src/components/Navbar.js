@@ -12,6 +12,7 @@ const Navbar = () => {
     <nav className="navbar">
       <Link classname="navbar-links" to="/">Home</Link>
       <Link classname="navbar-links" to="routines">Routines</Link>
+      <Link classname="navbar-links" to="activities">Activities</Link>
     </nav>
   );
 };
