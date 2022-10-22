@@ -10,9 +10,9 @@ import "../style.css";
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <Link classname="navbar-links" to="/">Home</Link>
-      <Link classname="navbar-links" to="routines">Routines</Link>
-      <Link classname="navbar-links" to="activities">Activities</Link>
+      <Link className="navbar-links" to="/">Home</Link>
+      <Link className="navbar-links" to="routines">Routines</Link>
+      <Link className="navbar-links" to="activities">Activities</Link>
     </nav>
   );
 };
