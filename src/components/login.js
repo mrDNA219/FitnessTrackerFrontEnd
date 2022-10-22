@@ -6,15 +6,14 @@ import {react, useState} from 'react'
 const Login = ({ setToken, navigate }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  
   const handleSubmit = async () => {
     const results = await loginUser(username, password);
-    if (results.success) {
+    if (results.message) {
       setToken(results.token);
       window.localStorage.setItem('token', results.token);
       navigate('/')
     } else {
-      console.log(results.error.message)
+      console.error("error logging in")
     }
   }
   

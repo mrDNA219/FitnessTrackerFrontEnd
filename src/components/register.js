@@ -17,15 +17,13 @@ const Register = ({ setToken, navigate }) => {
   
   const handleSubmit = async () => {
     const results = await registerUser(username, password);
-    
-    if (results.success) {
+    if (results.message) {
       setToken(results.token);
       window.localStorage.setItem('token', results.token);
-      console.log(results)
       navigate("/")
       
     } else {
-      console.log(results)
+      console.error("error registering user... please make sure your password is at least 8 characters long")
     }
   }
   

@@ -8,17 +8,33 @@ import { Navbar, Routines, Home, Activities, Login, Register } from "./component
 const App = () => {
   const [routines, setRoutines] = useState([]);
   const [token, setToken] = useState('');
+  const [user, setUser] = useState({});
+  const [activities, setActivities] = useState([]);
+
+  console.log("token:", token)
+
   const navigate = useNavigate();
   const retrievePublicRoutines = async () => {
     const results = await getRoutines();
     setRoutines(results);
   };
 
-  const [activities, setActivities] = useState([]);
 const retrieveAllActvities = async () => {
   const results = await getActivities();
   setActivities(results);
 };
+async function getMe() {
+  const storedToken = window.localStorage.getItem('token');
+  if(!token){
+      if(storedToken){
+      setToken(storedToken);
+      }
+      return;
+  } else {
+      console.error("error getting my token")
+  }
+}
+
 
   useEffect(() => {
     retrievePublicRoutines();
@@ -26,6 +42,9 @@ const retrieveAllActvities = async () => {
   useEffect(() => {
     retrieveAllActvities()
   }, []);
+  useEffect(() => {
+    getMe()
+  }, [])
 
   return (
     <div>

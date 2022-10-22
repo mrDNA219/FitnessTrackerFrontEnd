@@ -36,10 +36,8 @@ export const registerUser = async (username, password) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          user: {
             username: username,
             password: password
-          }
         })
       })
       const result = await response.json();
@@ -57,10 +55,8 @@ export const registerUser = async (username, password) => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          user: {
             username,
             password
-          }
         })
       })
       
