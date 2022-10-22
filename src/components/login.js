@@ -1,6 +1,7 @@
 // logs in the userimport React, { useState } from 'react';
 
 import { loginUser } from '../api';
+import {react, useState} from 'react'
 
 const Login = ({ setToken, navigate }) => {
   const [username, setUsername] = useState('');
@@ -9,9 +10,9 @@ const Login = ({ setToken, navigate }) => {
   const handleSubmit = async () => {
     const results = await loginUser(username, password);
     if (results.success) {
-      setToken(results.data.token);
-      window.localStorage.setItem('token', results.data.token);
-      navigate('/posts');
+      setToken(results.token);
+      window.localStorage.setItem('token', results.token);
+      navigate('/')
     } else {
       console.log(results.error.message)
     }

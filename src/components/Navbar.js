@@ -13,6 +13,9 @@ const Navbar = () => {
       <Link className="navbar-links" to="/">Home</Link>
       <Link className="navbar-links" to="routines">Routines</Link>
       <Link className="navbar-links" to="activities">Activities</Link>
+      <Link className="navbar-links" to="register">Register</Link>
+      <Link className="navbar-links" to="login">Login</Link>
+      
     </nav>
   );
 };
