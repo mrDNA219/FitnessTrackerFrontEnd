@@ -86,4 +86,19 @@ export const registerUser = async (username, password) => {
       console.log('error getting users details')
     }
   }
+  export const getRoutinesByUser = async (token, username) => {
+    try{
+      const response = await fetch(`${baseURL}/users/${username}/routines`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    const result = await response.json();
+    return result
+
+    } catch(error){
+      console.error("error getting routines by username")
+    }
+  }
   

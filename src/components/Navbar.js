@@ -16,11 +16,13 @@ const Navbar = (token, setToken) => {
       <Link className="navbar-links" to="activities">Activities</Link>
       {
         token.token ? ( 
-          
+          <>
           <Link to='/' onClick={() => {
             window.localStorage.removeItem('token');
             setToken('');
           }}>Logout</Link>
+          <Link className="navbar-links" to='/myroutines'>My Routines</Link>
+          </>
           
           ) : (
           <>
