@@ -5,6 +5,7 @@
 // home, routines, activities, my routines, profile, logout
 import { react, Fragment } from "react";
 import { Link } from "react-router-dom";
+
 import "../style.css";
 
 const Navbar = (token, setToken) => {

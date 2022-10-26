@@ -9,7 +9,7 @@ const Login = ({ setToken, navigate }) => {
   const handleSubmit = async () => {
     const results = await loginUser(username, password);
     if (results.message = "you're logged in!") {
-      setToken(results.token);
+      setToken(results.token.value);
       window.localStorage.setItem('token', results.token);
       navigate('/')
     } else {
