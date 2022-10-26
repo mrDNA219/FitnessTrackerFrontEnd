@@ -1,0 +1,1 @@
+// create a new activity as a register user
