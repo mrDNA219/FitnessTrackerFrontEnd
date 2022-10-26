@@ -1,20 +1,27 @@
 // after logging in....lists all routines created by user
-import {react, useState} from "react";
-
+import {react, useState, useEffect} from "react";
+import { Link } from "react-router-dom";
+import { getRoutinesByUser } from "../api";
 
 const MyRoutines = ({token, username}) => {
-    const [myRoutines, setMyRoutines] = useState([]);
-    const getMyRoutinesHelper = async (token, username) => {
-        const results = await getRoutinesByUser(token, username);
-        setMyRoutines(results)
-        
-    };
-    console.log(myRoutines)
+  const [myRoutines, setMyRoutines] = useState({});
+
+  const getMyRoutinesHelper = async () => {
+    const results = await getRoutinesByUser(token, username);
+    setMyRoutines(results)
+};
+
+    useEffect(() => {
+      getMyRoutinesHelper();
+    }, []);
     if(myRoutines.length){
         return (
+          <div>
+            <Link to='/createroutine' style={{display:"flex", justifyContent:"center", color:"blue"}} >Create New Routine</Link>
             <div className="container-allRoutines">
+              <h2>My Routines:</h2>
               {myRoutines.map((routine) => {
-                const { id, creatorName, name, goal, activities } = routine;
+                const { id, creatorName, name, goal, isPublic, activities } = routine;
         
                 return (
                   <div key={id} className='container-singleRoutine'>
@@ -22,6 +29,7 @@ const MyRoutines = ({token, username}) => {
                     <h2>{name}</h2>
                     <p>Creator: {creatorName}</p>
                     <p>Goal: {goal}</p> 
+                    <p>IsPublic: {isPublic.toString()}</p>
                     <div className="container-allRoutineActivities">
                     {activities.map((activity) => {
                       return (
@@ -39,10 +47,14 @@ const MyRoutines = ({token, username}) => {
                 );
               })}
             </div>
+            </div>
           );
         } else {
             return(
-                <div className="no-routines-message">You have not yet created any routines!</div>
+                <div>
+                  <Link to='/createroutine'>Create New Routine</Link>
+                  <p className="no-routines-message">You have not yet created any routines!</p>
+                </div>
             )
         }
     }
