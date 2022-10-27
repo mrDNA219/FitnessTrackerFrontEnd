@@ -3,13 +3,9 @@ import {react, useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { getRoutinesByUser } from "../api";
 
-const MyRoutines = ({token, username}) => {
-  const [myRoutines, setMyRoutines] = useState({});
-
-  const getMyRoutinesHelper = async () => {
-    const results = await getRoutinesByUser(token, username);
-    setMyRoutines(results)
-};
+const MyRoutines = ({token, myRoutines, getMyRoutinesHelper}) => {
+  
+  
 
     useEffect(() => {
       getMyRoutinesHelper();
@@ -21,7 +17,7 @@ const MyRoutines = ({token, username}) => {
             <div className="container-allRoutines">
               <h2>My Routines:</h2>
               {myRoutines.map((routine) => {
-                const { id, creatorName, name, goal, isPublic, activities } = routine;
+                const { id, creatorName, name, goal, isPublic, activities} = routine;
         
                 return (
                   <div key={id} className='container-singleRoutine'>
@@ -30,6 +26,7 @@ const MyRoutines = ({token, username}) => {
                     <p>Creator: {creatorName}</p>
                     <p>Goal: {goal}</p> 
                     <p>IsPublic: {isPublic.toString()}</p>
+                    <Link to={`/routines/edit-routine/:${id}`}>Edit Routine</Link>
                     <div className="container-allRoutineActivities">
                     {activities.map((activity) => {
                       return (

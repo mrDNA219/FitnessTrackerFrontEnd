@@ -121,4 +121,24 @@ export const registerUser = async (username, password) => {
       console.error("error creating routine")
     }
   }
+  export const updateRoutine = async ({token, name, goal, isPublic, id}) => {
+    try {
+      const response = await fetch(`${baseURL}/routines/${[id]}`, {
+        method: "PATCH",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          name,
+          goal,
+          isPublic
+        })
+      });
+      const result = await response.json();
+      return result
+    } catch (error) {
+      console.error('error updating routine')
+    }
+  }
   
