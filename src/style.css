@@ -1,9 +1,19 @@
-h2 {
-    text-decoration: underline;
-}
+/* h2 {
+  padding-bottom: 1.5rem;  
+} */
 .navbar{
     text-align: center;
+    background-color: #023047;
+    padding-top: 2rem;
+    font-weight: bold;
+    font-family: "Courier New", Courier, monospace;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: baseline;
+    border-radius: 15px;
 }
+
 .welcome-message{
     text-align: center;
 }
@@ -11,11 +21,28 @@ h2 {
     text-align: center;
 }
 a {
-    padding-right: 13px;
-    color: red;
-    font-size: 1.5rem;
-    
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    color: #3244ac;
+    font-size: 1.5rem;  
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+    box-shadow: 5px 5px 15px 5px #000000;
+    border-radius: 7px;
+    text-decoration: none; 
+    width: 100%;
+    background-color: #c2d9e0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
+
+
+a:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+  }
+
 .container-allRoutines{
     
     text-align: center;
