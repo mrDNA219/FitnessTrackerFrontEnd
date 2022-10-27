@@ -6,4 +6,3 @@ export {default as Login} from './login';
 export {default as Register} from './register';
 export {default as MyRoutines} from './MyRoutines';
 export {default as CreateRoutine} from './CreateRoutine';
-export {default as EditRoutine} from './EditRoutine';

@@ -12,7 +12,8 @@ const App = () => {
   const [activities, setActivities] = useState([]);
   const [username, setUsername] = useState('');
   const [userId, setUserId] = useState(0);
-  const [myRoutines, setMyRoutines] = useState([]);
+  
+  
   
   
   
@@ -40,6 +41,7 @@ const App = () => {
     }
 }
 
+
 const retrievePublicRoutines = async () => {
     const results = await getRoutines();
     setRoutines(results);
@@ -50,24 +52,17 @@ const retrieveAllActvities = async () => {
   setActivities(results);
 };
 
-const getMyRoutinesHelper = async () => {
-  const results = await getRoutinesByUser(token, username);
-  setMyRoutines(results)
-};
 
+useEffect(() => {
+  retrievePublicRoutines();
+}, []);
+useEffect(() => {
+  retrieveAllActvities();
+}, []);
+useEffect(() => {
+  getMe();
+}, [token]);
 
-  useEffect(() => {
-    getMe();
-  }, [token]);
-  useEffect(() => {
-    getMyRoutinesHelper();
-  }, []);
-  useEffect(() => {
-    retrievePublicRoutines();
-  }, []);
-  useEffect(() => {
-    retrieveAllActvities();
-  }, []);
   
 
   return (
@@ -79,9 +74,9 @@ const getMyRoutinesHelper = async () => {
         <Route path="/activities" element={<Activities activities={activities} navigate={navigate} />} />
         <Route path='/login' element={<Login setToken={setToken} navigate={navigate}/>} />
         <Route path='/register' element={<Register setToken={setToken} navigate={navigate} />} />
-        <Route path='/myroutines' element={<MyRoutines token={token} myRoutines={myRoutines} getMyRoutinesHelper={getMyRoutinesHelper}  />} />
+        <Route path='/myroutines' element={<MyRoutines token={token}  username={username} />} />
         <Route path='/createroutine' element={<CreateRoutine token={token} navigate={navigate}/>}></Route>
-        <Route path='/routines/edit-routine/:routineId' element={<EditRoutine token={token} myRoutines={myRoutines} getMyRoutinesHelper={getMyRoutinesHelper} navigate={navigate}/>} />
+        
 
       </Routes>
     </div>
