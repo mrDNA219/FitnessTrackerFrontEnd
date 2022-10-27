@@ -141,4 +141,20 @@ export const registerUser = async (username, password) => {
       console.error('error updating routine')
     }
   }
+  export const deleteRoutine = async (token, id) => {
+    try {
+      const response = await fetch(`${baseURL}/routines/${id}`, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      const result = await response.json();
+      return result
+    } catch (error) {
+      console.error("error deleting routine")
+    }
+  }
+
   
