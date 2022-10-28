@@ -58,8 +58,8 @@ const MyRoutines = ({token, username}) => {
    
     if(myRoutines.length){
         return (
-          <div>
-            <Link to='/createroutine' style={{display:"flex", justifyContent:"center", color:"blue"}} >Create New Routine</Link>
+          <div style={{ display:'flex', flexDirection:'column', alignItems:'center'}}>
+            <Link to='/createroutine' style={{color:"blue", textAlign:'center', width:'25%' }} >Create New Routine</Link>
             <div className="container-allRoutines">
               <h2>My Routines:</h2>
               {myRoutines.map((routine) => {
