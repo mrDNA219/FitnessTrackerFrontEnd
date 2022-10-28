@@ -10,7 +10,7 @@ const CreateActivity = ({token, navigate}) => {
 
     const newActivity = {
         name: name,
-        goal: description
+        description: description
     }
     async function addActivity(){
         await createActivity(token, newActivity);
