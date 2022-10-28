@@ -157,4 +157,22 @@ export const registerUser = async (username, password) => {
     }
   }
 
-  
+  export const createActivity = async (token, {name, description}) => {
+    try {
+      const response = await fetch(`${baseURL}/activities`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }, 
+        body: JSON.stringify({
+           name,
+           description
+        })
+      });
+      const result = await response.json();
+      return result
+    } catch (error) {
+      console.error("error creating activtity")
+    }
+  }

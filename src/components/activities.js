@@ -6,12 +6,16 @@
 // be shown a form to create a new activity (by name and description)
 // be shown an error if the activity already exists
 
+
 import { react } from "react";
+import { Link } from "react-router-dom";
 import "../style.css";
 
 
 const Activities = ({ activities }) => {
     return (
+      <div>
+        <Link to='/createactivity' style={{display:"flex", justifyContent:"center", color:"blue"}} >Create New Activity</Link>
       <div className="container-allActivities">
         {activities.map((activity) => {
           const { id, name, description } = activity;
@@ -24,6 +28,7 @@ const Activities = ({ activities }) => {
             </div>
           );
         })}
+      </div>
       </div>
     );
   };
