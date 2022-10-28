@@ -3,7 +3,7 @@ import {react, useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { getRoutinesByUser, deleteRoutine, updateRoutine} from "../api";
 
-const EditRoutine = ({token, myRoutines, routineId, getMyRoutinesHelper}) => {
+const EditRoutine = ({token, myRoutines, routineId, getMyRoutinesHelper, setActivateEdit}) => {
   
   const [currentRoutine] = myRoutines.filter((routine) => routine.id === routineId)
   
@@ -35,7 +35,7 @@ const EditRoutine = ({token, myRoutines, routineId, getMyRoutinesHelper}) => {
           <p>Check box if you want the routine to be public:</p>
           <input type='checkbox' className="checkbox" placeholder="true" onChange={(e) => setNewIsPublic(e.target.checked)}></input>
           <hr></hr>
-          <button type="submit" name="create-routine">Submit Changes</button>
+          <button type="submit" name="create-routine" onClick={() => setActivateEdit(0)}>Submit Changes</button>
       </form>
   )
 }
@@ -75,7 +75,7 @@ const MyRoutines = ({token, username}) => {
                     <div>
                       <button onClick={() => setActivateEdit(id)}>Edit Routine</button>
                       {
-                        activateEdit === id ? <EditRoutine token={token} myRoutines={myRoutines} routineId={id} getMyRoutinesHelper={getMyRoutinesHelper} /> : null
+                        activateEdit === id ? <EditRoutine setActivateEdit={setActivateEdit} token={token} myRoutines={myRoutines} routineId={id} getMyRoutinesHelper={getMyRoutinesHelper} /> : null
                       }
                     </div>
                     
