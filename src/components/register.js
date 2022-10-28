@@ -14,16 +14,20 @@ const Register = ({ setToken, navigate }) => {
   
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  
+  const [errorMessage, setErrorMessage] = useState('');
   const handleSubmit = async () => {
     const results = await registerUser(username, password);
-    if (results.message) {
+    if(password.length < 8){
+      setErrorMessage("please enter a password that is at least 8 characters long");
+      
+    } else if (results.message) {
       setToken(results.token);
       window.localStorage.setItem('token', results.token);
       navigate("/")
       
     } else {
-      console.error("error registering user... please make sure your password is at least 8 characters long")
+      console.error("error registering user...")
+      
     }
   }
   
@@ -32,7 +36,11 @@ const Register = ({ setToken, navigate }) => {
       event.preventDefault();
       handleSubmit();
     }}>
-
+      {
+        errorMessage ? (
+          <div>{errorMessage}</div>
+        ) : (null)
+      }
       <br></br>
 
       <input className='newUsername'
