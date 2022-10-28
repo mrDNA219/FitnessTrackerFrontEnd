@@ -42,12 +42,12 @@ const EditRoutine = ({token, myRoutines, routineId, getMyRoutinesHelper}) => {
 
 const MyRoutines = ({token, username}) => {
     const [myRoutines, setMyRoutines] = useState([]);
-    const [activateEdit, setActivateEdit] = useState(false)
+    const [activateEdit, setActivateEdit] = useState(0)
     const getMyRoutinesHelper = async () => {
       const results = await getRoutinesByUser(token, username);
       setMyRoutines(results)
     };
-
+    
     useEffect(() => {
       getMyRoutinesHelper()
     }, [myRoutines]);
@@ -73,9 +73,9 @@ const MyRoutines = ({token, username}) => {
                     <p>Goal: {goal}</p> 
                     <p>IsPublic: {isPublic.toString()}</p>
                     <div>
-                      <button onClick={() => setActivateEdit(!activateEdit)}>Edit Routine</button>
+                      <button onClick={() => setActivateEdit(id)}>Edit Routine</button>
                       {
-                        activateEdit && <EditRoutine token={token} myRoutines={myRoutines} routineId={id} getMyRoutinesHelper={getMyRoutinesHelper} />
+                        activateEdit === id ? <EditRoutine token={token} myRoutines={myRoutines} routineId={id} getMyRoutinesHelper={getMyRoutinesHelper} /> : null
                       }
                     </div>
                     
