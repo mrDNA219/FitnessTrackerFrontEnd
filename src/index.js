@@ -18,7 +18,7 @@ const App = () => {
   
   
   
-  console.log("token:", token)
+  
 
   const navigate = useNavigate();
   
@@ -74,8 +74,8 @@ useEffect(() => {
         <Route path="/activities" element={<Activities activities={activities} navigate={navigate} />} />
         <Route path='/login' element={<Login setToken={setToken} navigate={navigate}/>} />
         <Route path='/register' element={<Register setToken={setToken} navigate={navigate} />} />
-        <Route path='/myroutines' element={<MyRoutines token={token}  username={username} />} />
-        <Route path='/createroutine' element={<CreateRoutine token={token} navigate={navigate}/>}></Route>
+        <Route path='/myroutines' element={<MyRoutines token={token}  username={username} activities={activities}/>} />
+        <Route path='/createroutine' element={<CreateRoutine token={token} navigate={navigate} />}></Route>
         <Route path='/createactivity' element={<CreateActivity token={token} navigate={navigate}/>}></Route>
         
 

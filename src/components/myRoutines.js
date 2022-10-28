@@ -29,31 +29,38 @@ const EditRoutine = ({token, myRoutines, routineId, getMyRoutinesHelper, setActi
       <form onSubmit={(e) => {
           e.preventDefault();
           editRoutine();
+          setActivateEdit(0);
       }}>
           <input type='text' className="inputs" placeholder="Enter New Name" onChange={(e) => setNewName(e.target.value)}></input>
           <input type='text' className="inputs" placeholder="Enter New Goal" onChange={(e) => setNewGoal(e.target.value)}></input>
           <p>Check box if you want the routine to be public:</p>
           <input type='checkbox' className="checkbox" placeholder="true" onChange={(e) => setNewIsPublic(e.target.checked)}></input>
           <hr></hr>
-          <button type="submit" name="create-routine" onClick={() => setActivateEdit(0)}>Submit Changes</button>
+          <button type="submit" name="create-routine" >Submit Changes</button>
       </form>
   )
 }
 
-const MyRoutines = ({token, username}) => {
+const MyRoutines = ({token, username, activities}) => {
     const [myRoutines, setMyRoutines] = useState([]);
-    const [activateEdit, setActivateEdit] = useState(0)
+    const [activateEdit, setActivateEdit] = useState(0);
+
+    console.log(activities);
+
     const getMyRoutinesHelper = async () => {
+      if(username && token) {
       const results = await getRoutinesByUser(token, username);
       setMyRoutines(results)
+      }
     };
     
     useEffect(() => {
       getMyRoutinesHelper()
-    }, [myRoutines]);
+    }, [username, token]);
 
-    function handleDelete(id){
-      deleteRoutine(token, id);
+    async function handleDelete(id){
+     await deleteRoutine(token, id);
+      getMyRoutinesHelper();
     }
    
     if(myRoutines.length){

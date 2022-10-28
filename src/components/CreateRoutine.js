@@ -7,7 +7,6 @@ const CreateRoutine = ({token, navigate}) => {
     const [name, setName] = useState('');
     const [goal, setGoal] = useState('');
     const [isPublic, setIsPublic] = useState(false);
-
     const newRoutine = {
         name: name,
         goal: goal,
