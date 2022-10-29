@@ -32,6 +32,8 @@ const Register = ({ setToken, navigate }) => {
   }
   
   return (
+    <div id="register-heading">
+      <img className="register-img" src="https://img.icons8.com/nolan/344/task.png"></img>
     <form onSubmit={(event) => {
       event.preventDefault();
       handleSubmit();
@@ -61,6 +63,7 @@ const Register = ({ setToken, navigate }) => {
 
       <button type='submit'>Submit</button>
     </form>
+    </div>
   )
 }
 

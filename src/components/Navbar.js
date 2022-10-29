@@ -12,11 +12,11 @@ const Navbar = (token, setToken) => {
  
   return (
     <nav className="navbar">
+      <Link className="navbar-links" to="routines">Routines</Link>
+      <Link className="navbar-links" to="activities">Activities</Link>
       <Link className="navbar-links" style={{backgroundColor:'#023047'}} to="/">
         <img style={{width:'50px', height:'50px', zIndex:'2'}}src="https://img.icons8.com/nolan/344/weightlift.png"></img>
       </Link>
-      <Link className="navbar-links" to="routines">Routines</Link>
-      <Link className="navbar-links" to="activities">Activities</Link>
       {
         token.token ? ( 
           <>

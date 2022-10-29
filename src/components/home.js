@@ -7,7 +7,7 @@ const Home = () => {
       <p className="home-p">This is an app for creating workout routines!</p>
       <p className="home-p">Please login/register to be able to create routines</p>
       <div style={{alignItems:'center', display:'flex', justifyContent:'center'}}className="image-container">
-        <img src="https://image.shutterstock.com/image-photo/closeup-weightlifter-clapping-hands-before-600w-461236648.jpg"></img>
+      <img className="home-image" src="https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"></img>
       </div>
     </div>
     

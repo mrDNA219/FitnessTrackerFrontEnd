@@ -15,7 +15,7 @@ import "../style.css";
 const Activities = ({ activities }) => {
     return (
       <div>
-        <Link to='/createactivity' style={{display:"flex", justifyContent:"center", color:"blue"}} >Create New Activity</Link>
+        <Link to='/createactivity' style={{ color:"blue"}} >Create New Activity</Link>
       <div className="container-allActivities">
         {activities.map((activity) => {
           const { id, name, description } = activity;

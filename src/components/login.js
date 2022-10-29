@@ -20,6 +20,8 @@ const Login = ({ setToken, navigate }) => {
   }
   
   return (
+    <div id="login-heading">
+      <img className="register-img" src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/344/external-bench-press-fitness-kiranshastry-gradient-kiranshastry.png"></img>
     <form onSubmit={(event) => {
       event.preventDefault();
       handleSubmit();
@@ -42,8 +44,11 @@ const Login = ({ setToken, navigate }) => {
         placeholder='Enter Password'
         onChange={(event) => setPassword(event.target.value)}
       />
+      <br></br>
+
       <button type='submit'>Submit</button>
     </form>
+    </div>
   )
 }
 

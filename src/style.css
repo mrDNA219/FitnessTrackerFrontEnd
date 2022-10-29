@@ -1,7 +1,7 @@
 /* h2 {
   padding-bottom: 1.5rem;  
 } */
-.navbar{
+.navbar {
     text-align: center;
     background-color: #023047;
     padding-top: 2rem;
@@ -14,23 +14,25 @@
     border-radius: 15px;
 }
 
-.welcome-message{
+.welcome-message {
     text-align: center;
 }
-.home-p{
+
+.home-p {
     text-align: center;
 }
+
 a {
     margin-right: 20px;
     margin-left: 20px;
     margin-top: 0.5rem;
     margin-bottom: 2rem;
     color: #3244ac;
-    font-size: 1.5rem;  
-    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+    font-size: 1.5rem;
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
     box-shadow: 5px 5px 15px 5px #000000;
     border-radius: 7px;
-    text-decoration: none; 
+    text-decoration: none;
     width: 100%;
     background-color: #c2d9e0;
     padding-left: 0.5rem;
@@ -41,14 +43,78 @@ a {
 a:hover {
     color: rgb(255, 255, 255);
     text-decoration: underline;
-  }
+}
 
-.container-allRoutines{
+.container-allRoutines {
     text-align: center;
     align-items: center;
 }
-.no-routines-message{
+
+.no-routines-message {
     text-align: center;
     font-size: 2rem;
     margin-top: 20px;
 }
+
+body {
+    background: #614EFF;
+    text-align: center;
+}
+
+#register-heading {
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border: 3px solid #3244ac;
+    background-color:#c2d9e0 ;
+    margin-right: 20rem;
+    margin-left: 20rem;
+    margin-top: 5rem;
+
+
+}
+
+#login-heading {
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border: 3px solid #3244ac;
+    background-color:#c2d9e0 ;
+    margin-right: 20rem;
+    margin-left: 20rem;
+    margin-top: 5rem;
+
+}
+
+button:hover {
+
+    background-color: #c2d9e0;
+
+}
+
+.home-p {
+
+    font-weight: bold;
+    font-size: large;
+}
+
+.create-activity {
+
+    width: 20%;
+    margin-top: 1rem;
+
+}
+
+input.checkbox {
+
+    width: 20px;
+    height: 20px;
+}
+
+.p-create {
+
+    font-weight: bold;
+    font-size: large;
+
+}
+
