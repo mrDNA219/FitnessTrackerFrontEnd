@@ -2,9 +2,9 @@
 
 import {React, useState} from "react";
 
-import { createActivity } from "../api";
+import { createActivity, getActivities  } from "../api";
 
-const CreateActivity = ({token, navigate}) => {
+const CreateActivity = ({token, navigate, retrieveAllActivities}) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
 
@@ -14,7 +14,8 @@ const CreateActivity = ({token, navigate}) => {
     }
     async function addActivity(){
         await createActivity(token, newActivity);
-        navigate('./activities')
+         retrieveAllActivities();
+        navigate('/activities')
     }
     return (
         <form onSubmit={(e) => {
