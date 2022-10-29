@@ -12,10 +12,13 @@ import { Link } from "react-router-dom";
 import "../style.css";
 
 
-const Activities = ({ activities }) => {
+const Activities = ({ activities, token}) => {
     return (
       <div>
-        <Link to='/createactivity' style={{ color:"blue"}} >Create New Activity</Link>
+        {
+         token ? <Link to='/createactivity' style={{ color:"blue"}} >Create New Activity</Link> : null
+
+        }
       <div className="container-allActivities">
         {activities.map((activity) => {
           const { id, name, description } = activity;

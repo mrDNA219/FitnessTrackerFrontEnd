@@ -71,7 +71,7 @@ useEffect(() => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/routines" element={<Routines routines={routines} navigate={navigate} />} />
-        <Route path="/activities" element={<Activities activities={activities} navigate={navigate}  />} />
+        <Route path="/activities" element={<Activities activities={activities} token={token}  />} />
         <Route path='/login' element={<Login setToken={setToken} navigate={navigate}/>} />
         <Route path='/register' element={<Register setToken={setToken} navigate={navigate} />} />
         <Route path='/myroutines' element={<MyRoutines token={token}  username={username} activities={activities}/>} />
