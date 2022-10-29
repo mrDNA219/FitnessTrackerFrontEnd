@@ -18,6 +18,7 @@ const CreateActivity = ({token, navigate, retrieveAllActivities}) => {
         navigate('/activities')
     }
     return (
+        <div class ="c-activity"><img src="https://img.icons8.com/nolan/344/exercise.png"></img>
         <form onSubmit={(e) => {
             e.preventDefault();
             addActivity();
@@ -27,7 +28,7 @@ const CreateActivity = ({token, navigate, retrieveAllActivities}) => {
             <hr></hr>
             <button type="submit" name="create-activity">Create New Activity</button>
 
-        </form>
-    )
+        </form></div>
+    )  
 }
 export default CreateActivity
