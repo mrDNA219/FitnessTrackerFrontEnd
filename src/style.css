@@ -21,7 +21,7 @@
     text-align: center;
 }
 
-a {
+a.navbar-links {
     margin-right: 20px;
     margin-left: 20px;
     margin-top: 0.5rem;
@@ -216,17 +216,11 @@ margin-left: 20rem;
 margin-top: 5rem;
 
  }
-
- /* .home-container {
-
-  border: 3px solid #3244ac;
-    background-color:#c2d9e0 ;
-    margin-right: 20rem;
-    margin-left: 20rem;
-
- } */
  
  img.welcome-img {
     width: 3rem;
     height: 3rem;
  }
+
+
+
