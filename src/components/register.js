@@ -20,14 +20,14 @@ const Register = ({ setToken, navigate }) => {
     if(password.length < 8){
       setErrorMessage("please enter a password that is at least 8 characters long");
       
-    } else if (results.message) {
+    } else if (results.message === "you're signed up!") {
       setToken(results.token);
       window.localStorage.setItem('token', results.token);
       navigate("/")
       
     } else {
-      console.error("error registering user...")
-      
+      console.error("error registering user");
+      setErrorMessage('Username is already taken');
     }
   }
   
