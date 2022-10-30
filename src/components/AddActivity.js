@@ -32,7 +32,8 @@ const AddActivity = ({routineId, setActivateAddActivity}) => {
 
       }}>
         <fieldset>
-        <select id="activity-dropdown"  onChange={e => setCurrentActivityId(e.target.value)}>
+        <select id="activity-dropdown" onChange={e => setCurrentActivityId(e.target.value)}>
+          <option>Select An Activity</option>
           {
             allActivities.map((activity) => {
               return <option key={activity.id} value={activity.id}>{activity.name}</option>
