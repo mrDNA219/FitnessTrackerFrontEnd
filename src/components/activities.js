@@ -26,8 +26,15 @@ const Activities = ({ activities, token}) => {
           return (
             <div key={id} className='container-singleActivity'>
               <hr></hr>
-              <h2>{name}</h2>
+              <Link to={`/activities/routines/${id}`} style={{ color:"blue"}}><h4>{name}</h4></Link>
               <p>description: {description}</p>
+              <hr></hr>
+              <p>
+              {
+         token ? <Link to='/activities/edit-activity/:activityId' style={{ color:"blue"}} >Edit Activity</Link> : null
+
+        }
+              </p>
             </div>
           );
         })}

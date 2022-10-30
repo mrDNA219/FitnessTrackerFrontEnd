@@ -3,13 +3,13 @@ import reactDom from "react-dom/client";
 import { Route, Routes, BrowserRouter, useNavigate } from "react-router-dom";
 import "./style.css";
 import { getRoutines, getActivities, getUserDetails, getRoutinesByUser } from "./api";
-import { Navbar, Routines, Home, Activities, Login, Register, MyRoutines, CreateRoutine, EditRoutine, CreateActivity} from "./components/index";
+import { Navbar, Routines, Home, Activities, Login, Register, MyRoutines, CreateRoutine, EditRoutine, CreateActivity, EditActivity, ActivityRoutines} from "./components/index";
 
 const App = () => {
+  const [activities, setActivities] = useState([]);
   const [routines, setRoutines] = useState([]);
   const [token, setToken] = useState('');
   const [user, setUser] = useState({});
-  const [activities, setActivities] = useState([]);
   const [username, setUsername] = useState('');
   const [userId, setUserId] = useState(0);
   
@@ -77,6 +77,8 @@ useEffect(() => {
         <Route path='/myroutines' element={<MyRoutines token={token}  username={username} activities={activities}/>} />
         <Route path='/createroutine' element={<CreateRoutine token={token} navigate={navigate} />}></Route>
         <Route path='/createactivity' element={<CreateActivity token={token} navigate={navigate} retrieveAllActivities={retrieveAllActivities}/>}></Route>
+        <Route path='/activities/edit-activity/:activityID' element={<EditActivity token={token}   activities={activities} navigate={navigate} retrieveAllActivities={retrieveAllActivities}/>}></Route>
+        <Route path='/activities/routines/:activityId' element={<ActivityRoutines token={token}   activities={activities} navigate={navigate} retrieveAllActivities={retrieveAllActivities}/>}></Route>
         
 
       </Routes>

@@ -176,3 +176,42 @@ export const registerUser = async (username, password) => {
       console.error("error creating activtity")
     }
   }
+
+  export const updateActivity = async (token, { name, description,id } ) => {
+    try {
+      const response = await fetch(`${baseURL}/activities/${id}`, {
+        method: "PATCH",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+  
+          name,
+          description,
+  
+        })
+      })
+      const result = await response.json();
+      return (result)
+  
+    } catch (error) {
+      console.error('error updating activity')
+    }
+  }
+
+  export const activityRoutines = async (activityId) => {
+    try {
+      const response = await fetch(`${baseURL}/activities/${activityId}/routines`, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      const result = await response.json();
+      return result
+    } catch (error) {
+      console.log('error getting public routines')
+    } 
+  }
+  
+  
