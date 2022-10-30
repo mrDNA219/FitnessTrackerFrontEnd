@@ -1,4 +1,4 @@
-export {default as Routines} from "./routines";
+export {default as Routines} from "./Routines";
 export {default as Navbar} from './Navbar';
 export {default as Home} from './home';
 export {default as Activities} from "./activities";
@@ -9,3 +9,4 @@ export {default as CreateRoutine} from './CreateRoutine';
 export {default as CreateActivity} from './CreateActivity';
 export {default as EditActivity} from './EditActivity';
 export {default as ActivityRoutines} from './activityRoutines';
+export {default as AddActivity} from './AddActivity'

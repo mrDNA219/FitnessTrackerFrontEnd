@@ -24,7 +24,7 @@ const CreateRoutine = ({token, navigate}) => {
         }}>
             <input type='text' className="inputs" placeholder="Enter Name" onChange={(e) => setName(e.target.value)}></input>
             <input type='text' className="inputs" placeholder="Enter Goal" onChange={(e) => setGoal(e.target.value)}></input>
-            <p class="m-routine">Check box if you want the routine to be public:</p>
+            <p className="m-routine">Check box if you want the routine to be public:</p>
             <input type='checkbox' className="checkbox" placeholder="true" onChange={(e) => setIsPublic(e.target.checked)}></input>
             <hr></hr>
             <button type="submit" name="create-routine">Create New Routine</button>

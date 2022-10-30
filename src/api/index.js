@@ -213,5 +213,24 @@ export const registerUser = async (username, password) => {
       console.log('error getting public routines')
     } 
   }
+  export const addActivityToRoutine = async (routineId, {activityId, count, duration}) => {
+    try {
+      const response = await fetch(`${baseURL}/routines/${routineId}/activities`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          activityId: activityId,
+          count: count,
+          duration: duration
+        })
+      });
+      const result = await response.json();
+      return result
+    } catch (error) {
+      console.error("error adding activity to routine")
+    }
+  }
   
   

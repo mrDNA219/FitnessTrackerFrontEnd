@@ -1,7 +1,8 @@
 // after logging in....lists all routines created by user
 import {react, useState, useEffect} from "react";
 import { Link } from "react-router-dom";
-import { getRoutinesByUser, deleteRoutine, updateRoutine} from "../api";
+import { getRoutinesByUser, deleteRoutine, updateRoutine, getActivities} from "../api";
+import {AddActivity} from "./index"
 
 const EditRoutine = ({token, myRoutines, routineId, getMyRoutinesHelper, setActivateEdit}) => {
   
@@ -41,11 +42,12 @@ const EditRoutine = ({token, myRoutines, routineId, getMyRoutinesHelper, setActi
   )
 }
 
-const MyRoutines = ({token, username, activities}) => {
+const MyRoutines = ({token, username}) => {
     const [myRoutines, setMyRoutines] = useState([]);
     const [activateEdit, setActivateEdit] = useState(0);
+    const [activateAddActivity, setActivateAddActivity] = useState(0);
 
-    console.log(activities);
+    
 
     const getMyRoutinesHelper = async () => {
       if(username && token) {
@@ -56,7 +58,7 @@ const MyRoutines = ({token, username, activities}) => {
     
     useEffect(() => {
       getMyRoutinesHelper()
-    }, [username, token]);
+    }, [username, token, activateAddActivity]);
 
     async function handleDelete(id){
      await deleteRoutine(token, id);
@@ -83,6 +85,12 @@ const MyRoutines = ({token, username, activities}) => {
                       <button onClick={() => setActivateEdit(id)}>Edit Routine</button>
                       {
                         activateEdit === id ? <EditRoutine setActivateEdit={setActivateEdit} token={token} myRoutines={myRoutines} routineId={id} getMyRoutinesHelper={getMyRoutinesHelper} /> : null
+                      }
+                    </div>
+                    <div>
+                      <button onClick={() => setActivateAddActivity(id)}>Add Activity</button>
+                      {
+                        activateAddActivity === id ? <AddActivity routineId={id} setActivateAddActivity={setActivateAddActivity} /> : null
                       }
                     </div>
                     
