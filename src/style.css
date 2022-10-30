@@ -22,8 +22,8 @@
 }
 
 a {
-    margin-right: 20px;
-    margin-left: 20px;
+    /* margin-right: 20px;
+    margin-left: 20px; */
     margin-top: 0.5rem;
     margin-bottom: 2rem;
     color: #3244ac;
@@ -34,8 +34,8 @@ a {
     text-decoration: none;
     width: 100%;
     background-color: #c2d9e0;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    /* padding-left: 0.5rem;
+    padding-right: 0.5rem; */
 }
 
 
@@ -216,17 +216,27 @@ margin-left: 20rem;
 margin-top: 5rem;
 
  }
-
- /* .home-container {
-
-  border: 3px solid #3244ac;
-    background-color:#c2d9e0 ;
-    margin-right: 20rem;
-    margin-left: 20rem;
-
- } */
  
  img.welcome-img {
     width: 3rem;
     height: 3rem;
  }
+
+
+
+ a.navbar-links {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    color: #3244ac;
+    font-size: 1.5rem;
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
+    box-shadow: 5px 5px 15px 5px #000000;
+    border-radius: 7px;
+    text-decoration: none;
+    width: 100%;
+    background-color: #c2d9e0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
