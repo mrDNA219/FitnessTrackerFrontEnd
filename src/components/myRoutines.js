@@ -2,7 +2,7 @@
 import {react, useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { getRoutinesByUser, deleteRoutine, updateRoutine, getActivities, deleteRoutineActivity} from "../api";
-import {AddActivity} from "./index"
+import {AddActivity, UpdateRoutineActivity} from "./index"
 
 const EditRoutine = ({token, myRoutines, routineId, getMyRoutinesHelper, setActivateEdit}) => {
   
@@ -46,6 +46,7 @@ const MyRoutines = ({token, username}) => {
     const [myRoutines, setMyRoutines] = useState([]);
     const [activateEdit, setActivateEdit] = useState(0);
     const [activateAddActivity, setActivateAddActivity] = useState(0);
+    const [activateUpdateActivity, setActivateUpdateActivity] = useState(0);
 
     
 
@@ -110,6 +111,12 @@ const MyRoutines = ({token, username}) => {
                           <p>Description: {activity.description}</p>
                           <p>Duration: {activity.duration}</p>
                           <p>Count: {activity.count}</p>
+                          <div>
+                            <button onClick={() => setActivateUpdateActivity(activity.id)}>Update Routine Activity</button>
+                            {
+                            activateUpdateActivity === activity.id ? <UpdateRoutineActivity token={token} routineActivityId={activity.routineActivityId} getMyRoutinesHelper={getMyRoutinesHelper} setActivateUpdateActivity={setActivateUpdateActivity}/> : null
+                            }
+                          </div>
                           <div>
                             <button onClick={() => deleteRoutineActivityHelper(activity.routineActivityId)}>Delete activity</button>
                           </div>

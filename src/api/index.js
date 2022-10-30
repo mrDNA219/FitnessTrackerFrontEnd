@@ -232,10 +232,14 @@ export const registerUser = async (username, password) => {
       console.error("error adding activity to routine")
     }
   }
-  export const updateRoutineActivity = async ({id, count, duration}) => {
+  export const updateRoutineActivity = async (token, id, {count, duration}) => {
     try {
       const response = await fetch(`${baseURL}/routine_activities/${id}`, {
         method: "PATCH",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify({
           count: count,
           duration: duration

@@ -9,4 +9,5 @@ export {default as CreateRoutine} from './CreateRoutine';
 export {default as CreateActivity} from './CreateActivity';
 export {default as EditActivity} from './EditActivity';
 export {default as ActivityRoutines} from './activityRoutines';
-export {default as AddActivity} from './AddActivity'
+export {default as AddActivity} from './AddActivity';
+export {default as UpdateRoutineActivity} from './UpdateRoutineActivity';
