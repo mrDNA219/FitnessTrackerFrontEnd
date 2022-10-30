@@ -77,7 +77,7 @@ useEffect(() => {
         <Route path='/myroutines' element={<MyRoutines token={token}  username={username}  />} />
         <Route path='/createroutine' element={<CreateRoutine token={token} navigate={navigate} />}></Route>
         <Route path='/createactivity' element={<CreateActivity token={token} navigate={navigate} retrieveAllActivities={retrieveAllActivities}/>}></Route>
-        <Route path='/activities/edit-activity/:activityID' element={<EditActivity token={token}   activities={activities} navigate={navigate} retrieveAllActivities={retrieveAllActivities}/>}></Route>
+        <Route path='edit-activities/activities/:activityId' element={<EditActivity token={token}   activities={activities} navigate={navigate} retrieveAllActivities={retrieveAllActivities}/>}></Route>
         <Route path='/activities/routines/:activityId' element={<ActivityRoutines token={token}   activities={activities} navigate={navigate} retrieveAllActivities={retrieveAllActivities}/>}></Route>
         
 

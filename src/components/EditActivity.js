@@ -6,6 +6,7 @@ import "../style.css";
 
 const EditActivity = ({ activities, retrieveAllActivities, navigate, token }) => {
   const { activityID } = useParams();
+  console.log(activityID);
   if (activities.length) {
     const currentActivity = activities.filter(activity => activity.id === parseInt(activityID));
 
@@ -23,7 +24,7 @@ const EditActivity = ({ activities, retrieveAllActivities, navigate, token }) =>
         id: activityID
       }
     //   console.log("check", token)
-      await updateActivity(updatedActivity, token)
+      await updateActivity(token, updatedActivity)
       navigate('/activities')
       retrieveAllActivities
     }

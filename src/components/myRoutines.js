@@ -1,7 +1,7 @@
 // after logging in....lists all routines created by user
 import {react, useState, useEffect} from "react";
 import { Link } from "react-router-dom";
-import { getRoutinesByUser, deleteRoutine, updateRoutine, getActivities} from "../api";
+import { getRoutinesByUser, deleteRoutine, updateRoutine, getActivities, deleteRoutineActivity} from "../api";
 import {AddActivity} from "./index"
 
 const EditRoutine = ({token, myRoutines, routineId, getMyRoutinesHelper, setActivateEdit}) => {
@@ -60,6 +60,11 @@ const MyRoutines = ({token, username}) => {
       getMyRoutinesHelper()
     }, [username, token, activateAddActivity]);
 
+    async function deleteRoutineActivityHelper(id){
+      await deleteRoutineActivity(token, id);
+      getMyRoutinesHelper();
+    }
+
     async function handleDelete(id){
      await deleteRoutine(token, id);
       getMyRoutinesHelper();
@@ -73,6 +78,7 @@ const MyRoutines = ({token, username}) => {
               <h2>My Routines:</h2>
               {myRoutines.map((routine) => {
                 const { id, creatorName, name, goal, isPublic, activities} = routine;
+               
         
                 return (
                   <div key={id} className='container-singleRoutine'>
@@ -104,6 +110,9 @@ const MyRoutines = ({token, username}) => {
                           <p>Description: {activity.description}</p>
                           <p>Duration: {activity.duration}</p>
                           <p>Count: {activity.count}</p>
+                          <div>
+                            <button onClick={() => deleteRoutineActivityHelper(activity.routineActivityId)}>Delete activity</button>
+                          </div>
                         </div>
                       );
                     })}

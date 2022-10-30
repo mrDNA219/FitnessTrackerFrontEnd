@@ -177,7 +177,7 @@ export const registerUser = async (username, password) => {
     }
   }
 
-  export const updateActivity = async (token, { name, description,id } ) => {
+  export const updateActivity = async (token, { name, description, id } ) => {
     try {
       const response = await fetch(`${baseURL}/activities/${id}`, {
         method: "PATCH",
@@ -230,6 +230,36 @@ export const registerUser = async (username, password) => {
       return result
     } catch (error) {
       console.error("error adding activity to routine")
+    }
+  }
+  export const updateRoutineActivity = async ({id, count, duration}) => {
+    try {
+      const response = await fetch(`${baseURL}/routine_activities/${id}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          count: count,
+          duration: duration
+        })
+      });
+      const result = await response.json();
+      return result
+    } catch (error) {
+      console.error("error updating routine activity")
+    }
+  }
+  export const deleteRoutineActivity = async (token, id) => {
+    try {
+      const response = await fetch(`${baseURL}/routine_activities/${id}`, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      const result = await response.json();
+      return result
+    } catch (error) {
+      console.error("error deleting routine activity")
     }
   }
   

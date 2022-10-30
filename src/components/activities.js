@@ -31,7 +31,7 @@ const Activities = ({ activities, token}) => {
               <hr></hr>
               <p>
               {
-         token ? <Link to='/activities/edit-activity/:activityId' style={{ color:"blue"}} >Edit Activity</Link> : null
+         token ? <Link to={`/edit-activities/activities/${id}`} style={{ color:"blue"}} >Edit Activity</Link> : null
 
         }
               </p>
