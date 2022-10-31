@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
 .navbar {
     text-align: center;
     background-color: #023047;
@@ -10,6 +10,9 @@
     justify-content: space-between;
     align-items: baseline;
     border-radius: 15px;
+    position: sticky;
+    top: .5rem
+
 }
 
 .welcome-message {
@@ -45,8 +48,16 @@ a:hover {
 }
 
 .container-allRoutines {
+    display: flex;
     text-align: center;
     align-items: center;
+    flex-direction: column;
+    
+}
+.container-allMyRoutines {
+    text-align: center;
+    align-items: center;
+    
 }
 
 .no-routines-message {
@@ -129,7 +140,15 @@ input.checkbox {
     justify-content: space-evenly;
 }
 
+
 .container-singleRoutine:nth-child(even)
+
+{
+
+    background-color: #B8C0ff;
+
+}
+.container-singleMyRoutine:nth-child(even)
 
 {
 
@@ -144,7 +163,30 @@ input.checkbox {
     background-color: #56cfe16e;
 
 }
+.container-singleMyRoutine:nth-child(odd)
+
+{
+
+    background-color: #56cfe16e;
+
+}
 .container-singleRoutine {
+
+    height: 50rem;
+    flex-basis: 200px;
+    flex-grow: 1;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    margin: 5px 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    width: 60rem;
+
+}
+.container-singleMyRoutine {
 
     flex-basis: 200px;
     flex-grow: 1;
@@ -156,14 +198,12 @@ input.checkbox {
     flex-direction: column;
     max-height: 400px;
     overflow:auto;
-    
-
+    width:60rem;
 }
 
 
-
 .container-allActivities {
-
+    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -240,3 +280,77 @@ margin-top: 5rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 }
+.container-allRoutineActivities{
+   
+    
+    
+    display: flex;
+    
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    margin: 5px 10px;
+    padding: 10px;
+    border-radius: 10px;
+    
+   
+   
+    
+}
+.container-singleRoutineActivity{
+    
+    
+    width: 25rem;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    margin: 5px 10px;
+    
+    border-radius: 10px;
+}
+.container-singleRoutineActivity:nth-child(even){
+    background-color: #56cee1 ;
+}
+.container-singleRoutineActivity:nth-child(odd){
+    background-color: #bc9dd0 ;
+}
+.add-activity{
+    background-color: #614EFF;
+    border-radius: 10px;
+    padding: 1rem;
+    
+}
+.fieldset{
+    border: none;
+}
+.select {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    
+    
+  }
+  button{
+      display: flex;
+      padding: 1.2rem;
+      border-radius: 10px;
+      width: 9rem;
+      height: 0.5rem;
+      justify-content: center;
+      margin: 0 auto;
+      align-items: center;
+      background-color: #522B47;
+      font-size: 13px;
+      font-family: "Carter One";
+      border-style: none;
+      color: white
+      
+
+  }
+  .button-container{
+      padding: 0.2rem;
+      margin: 0.2rem;
+      text-align: center;
+  }
+  h2{
+      font-family: "Carter One";
+      font-size: 2rem;
+  }

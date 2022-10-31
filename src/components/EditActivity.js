@@ -5,12 +5,12 @@ import "../style.css";
 
 
 const EditActivity = ({ activities, retrieveAllActivities, navigate, token }) => {
-  const { activityID } = useParams();
-  console.log(activityID);
+  const  {activityId}  = useParams();
+  
   if (activities.length) {
-    const currentActivity = activities.filter(activity => activity.id === parseInt(activityID));
+    const [currentActivity] = activities.filter(activity => activity.id === parseInt(activityId));
 
-    // console.log(currentActivity)
+    
     const { name, description } = currentActivity;
 
     const [newName, setNewName] = useState(name);
@@ -21,12 +21,12 @@ const EditActivity = ({ activities, retrieveAllActivities, navigate, token }) =>
       const updatedActivity = {
         name: newName,
         description: newDescription,
-        id: activityID
+        id: activityId
       }
-    //   console.log("check", token)
+    
       await updateActivity(token, updatedActivity)
       navigate('/activities')
-      retrieveAllActivities
+      retrieveAllActivities();
     }
 
     return (

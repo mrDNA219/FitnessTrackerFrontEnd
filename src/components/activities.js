@@ -16,7 +16,7 @@ const Activities = ({ activities, token}) => {
     return (
       <div>
         {
-         token ? <Link to='/createactivity' style={{ color:"blue"}} >Create New Activity</Link> : null
+         token ? <Link to='/createactivity' style={{fontWeight:"bold", color:"#3244ac", textAlign:'center', width:'25%', position:"sticky", top:"9rem", fontFamily:"Courier New", fontSize:"1.5rem", textShadow:"-1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5)" }} >Create New Activity</Link> : null
 
         }
       <div className="container-allActivities">

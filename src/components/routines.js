@@ -22,12 +22,14 @@ import "../style.css";
 const Routines = ({ routines }) => {
   return (
     <div className="container-allRoutines">
+      <h2>All Public Routines:</h2>
+      <p>Scroll on routine to see it's activities</p>
       {routines.map((routine) => {
         const { id, creatorName, name, goal, activities } = routine;
 
         return (
           <div key={id} className='container-singleRoutine'>
-            <hr></hr>
+            
             <h2>{name}</h2>
             <p>Creator: {creatorName}</p>
             <p>Goal: {goal}</p> 

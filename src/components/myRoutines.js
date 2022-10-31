@@ -74,34 +74,35 @@ const MyRoutines = ({token, username}) => {
     if(myRoutines.length){
         return (
           <div style={{ display:'flex', flexDirection:'column', alignItems:'center'}}>
-            <Link to='/createroutine' style={{color:"blue", textAlign:'center', width:'25%' }} >Create New Routine</Link>
-            <div className="container-allRoutines">
+            <Link to='/createroutine' style={{fontWeight:"bold", color:"#3244ac", textAlign:'center', width:'25%', position:"sticky", top:"9rem", fontFamily:"Courier New", fontSize:"1.5rem", textShadow:"-1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5)" }} >Create New Routine</Link>
+            <div className="container-allMyRoutines">
               <h2>My Routines:</h2>
               {myRoutines.map((routine) => {
                 const { id, creatorName, name, goal, isPublic, activities} = routine;
                
         
                 return (
-                  <div key={id} className='container-singleRoutine'>
+                  <div key={id} className='container-singleMyRoutine'>
                     <hr></hr>
                     <h2>{name}</h2>
                     <p>Creator: {creatorName}</p>
                     <p>Goal: {goal}</p> 
                     <p>IsPublic: {isPublic.toString()}</p>
-                    <div>
+                    <div className="button-container">
                       <button onClick={() => setActivateEdit(id)}>Edit Routine</button>
                       {
                         activateEdit === id ? <EditRoutine setActivateEdit={setActivateEdit} token={token} myRoutines={myRoutines} routineId={id} getMyRoutinesHelper={getMyRoutinesHelper} /> : null
                       }
                     </div>
-                    <div>
+                    <div className="button-container">
                       <button onClick={() => setActivateAddActivity(id)}>Add Activity</button>
                       {
                         activateAddActivity === id ? <AddActivity routineId={id} setActivateAddActivity={setActivateAddActivity} /> : null
                       }
                     </div>
-                    
+                    <div className="button-container">
                     <button onClick={() => handleDelete(id)}>Delete Routine</button>
+                    </div>
                     <div className="container-allRoutineActivities">
                     {activities.map((activity) => {
                       return (
@@ -111,13 +112,13 @@ const MyRoutines = ({token, username}) => {
                           <p>Description: {activity.description}</p>
                           <p>Duration: {activity.duration}</p>
                           <p>Count: {activity.count}</p>
-                          <div>
+                          <div className="button-container">
                             <button onClick={() => setActivateUpdateActivity(activity.id)}>Update Routine Activity</button>
                             {
                             activateUpdateActivity === activity.id ? <UpdateRoutineActivity token={token} routineActivityId={activity.routineActivityId} getMyRoutinesHelper={getMyRoutinesHelper} setActivateUpdateActivity={setActivateUpdateActivity}/> : null
                             }
                           </div>
-                          <div>
+                          <div className="button-container">
                             <button onClick={() => deleteRoutineActivityHelper(activity.routineActivityId)}>Delete activity</button>
                           </div>
                         </div>

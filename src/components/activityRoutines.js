@@ -15,7 +15,8 @@ const ActivityRoutines = ({ activities }) => {
     },[activityId])
 
     return (
-        <div className="container-allPublicRoutines">
+        <div className="container-allRoutines">
+            <h2>All Routines Containing Activity:</h2>
             {routines.map((routine) => {
         const {activities, creatorId, creatorName, goal, id, isPublic, name} = routine;
 
