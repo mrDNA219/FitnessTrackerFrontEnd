@@ -27,21 +27,22 @@ const ActivityRoutines = ({ activities }) => {
               <p>Creator: {creatorName}</p>
               <p>Goal: {goal}</p>
               <h4>Activities</h4>
-              <ul>
+              <div className='container-allRoutineActivities'>
                     {
                         activities.map((activity) => {
                             const {name, description, duration, count, id} = activity;
                             return (
-                                <li key={id}>
+                                <div key={id} className='container-singleRoutineActivity'>
                                     <h3>{name}</h3>
                                     <p>Description: {description}</p>
                                     <p>Duration: {duration}</p>
                                     <p>Count: {count}</p>
-                                </li>
+                                </div>
+                                
                             )
                         })
                     }
-                    </ul>
+                    </div>
 
 
               </div>
